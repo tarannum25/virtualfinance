@@ -60,9 +60,11 @@ CREATE TABLE transactions(
     transaction_date TIMESTAMP,
     transaction_type TINYINT(1),
     user_id INT UNSIGNED NOT NULL,
+    account_id INT UNSIGNED NOT NULL,
 
     PRIMARY KEY (id),
-    FOREIGN KEY (user_id) REFERENCES users(id)
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (account_id) REFERENCES accounts(id)
 );
 
 
