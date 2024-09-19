@@ -1,45 +1,47 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Controllers\Auth;
 
 use Fantom\Session;
+use App\Models\User;
 use Fantom\Controller;
-use App\Middlewares\GuestMiddleware;
-use App\Support\Authentication\Auth;
-use App\Support\Validations\AuthValidator;
+use App\Support\Validations\UserValidator;
 
 /**
  * RegisterController
  */
 class RegisterController extends Controller
 {
-	protected function index()
+	public function index()
 	{
 		$this->view->render("Auth/Register/index.php");
 	}
 
-	protected function store()
+	public function store()
 	{
-		$validator = AuthValidator::validateRegistration();
-
-		// No need to set the error in the session
-		// it is already handled by view
-		if ($validator->hasError()) {
+		$v = new UserValidator();
+		$v->validateRegister();
+		if ($v->hasError()) {
+			var_dump($v->validationErrors()->all());exit;
 			redirect('auth/register');
 		}
 
-		if (Auth::create($_POST) === false) {
-			Session::flash('error', 'Failed to create user.');
-			redirect('auth/register');
+		// 2. Pouplate the user data in User model class
+		$user = new User();
+		$user->first_name 	= $_POST['first_name'];
+		$user->last_name 	= $_POST['last_name'];
+		$user->phone 		= $_POST['phone'];
+		$user->gender 		= 1; // 1 = Male, 2 = Female
+		$user->password 	= $_POST['password'];
+		$user->username 	= "".random_int(100000, 999999);
+
+		// 3. Save user
+		if (! $user->save()) {
+			Session::flash("error", "Failed to create your account, try later.");
+			redirect("auth/register");
 		}
 
-		Session::flash('success', 'Account created successfully.');
-
-		redirect('auth/login');
-	}
-
-	protected function before()
-	{
-		return (new GuestMiddleware)();
+		// 4. Redirect to home page.
+		redirect('/');
 	}
 }
