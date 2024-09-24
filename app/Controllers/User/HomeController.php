@@ -11,7 +11,7 @@ use App\Support\Authentication\Auth;
  */
 class HomeController extends Controller
 {
-	protected function index()
+	public function index()
 	{
 		$this->view->render('User/Home/index.php');
 	}

@@ -13,7 +13,7 @@ use App\Support\Validations\AuthValidator;
  */
 class SettingController extends Controller
 {
-	protected function index()
+	public function index()
 	{
 		$this->view->render('User/Setting/index.php');
 	}
