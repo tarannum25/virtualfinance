@@ -12,34 +12,34 @@ class HomeController extends Controller
 {
 	public function index()
 	{
-		$users = User::all()->get();
+		// $users = User::all()->get();
 
-		echo "<pre>";
-		print_r($users);
-		echo "</pre>";
+		// echo "<pre>";
+		// print_r($users);
+		// echo "</pre>";
 
-		$user = User::find(1);
+		// $user = User::find(1);
 
-		$accounts = $user->accounts()->get();
+		// $accounts = $user->accounts()->get();
 
-		echo "<br>===================<br>";
-		echo "<pre>";
-		print_r($accounts);
-		echo "</pre>";
-
-
-		$account = $accounts[0];
-		$transactions = $account->transactions()->get();
-
-		echo "<br>===================<br>";
-		echo "<pre>";
-		print_r($transactions);
-		echo "</pre>";
+		// echo "<br>===================<br>";
+		// echo "<pre>";
+		// print_r($accounts);
+		// echo "</pre>";
 
 
+		// $account = $accounts[0];
+		// $transactions = $account->transactions()->get();
 
-		exit;
+		// echo "<br>===================<br>";
+		// echo "<pre>";
+		// print_r($transactions);
+		// echo "</pre>";
 
-		$this->view->render('welcome.php');
+
+
+		// exit;
+
+		$this->view->render('Home/index.php');
 	}
 }
