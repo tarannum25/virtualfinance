@@ -1,5 +1,7 @@
 <?php $this->use('templates/base.php', ['title' => 'Register']) ?>
 
+
+
 <div class="form-container">
     <h2>Sign Up for Virtual Finance</h2>
     <form action="/auth/register/store" method="post">

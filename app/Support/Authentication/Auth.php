@@ -16,7 +16,7 @@ class Auth
 
 	public static function attempt($email, $password)
 	{
-		$user = User::where('email', $email)->first();
+		$user = User::where('username', $email)->first();
 		if(! $user) {
 			return false;
 		}

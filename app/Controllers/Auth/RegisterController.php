@@ -32,7 +32,7 @@ class RegisterController extends Controller
 		$user->last_name 	= $_POST['last_name'];
 		$user->phone 		= $_POST['phone'];
 		$user->gender 		= 1; // 1 = Male, 2 = Female
-		$user->password 	= $_POST['password'];
+		$user->password 	= password_hash($_POST['password'], PASSWORD_DEFAULT);
 		$user->username 	= "".random_int(100000, 999999);
 
 		// 3. Save user

@@ -62,11 +62,11 @@
     <div class="send-money-section">
         <h3>Send Money</h3>
         <form id="sendMoneyForm">
-            <label for="recipient">Recipient Account Number:</label>
-            <input type="text" id="recipient" name="recipient" placeholder="Enter account number" required>
+            <!-- <label for="recipient">Recipient Account Number:</label> -->
+            <input type="text" id="recipient" name="recipient" placeholder="Recipient Account Number" required>
 
-            <label for="amount">Amount to Send:</label>
-            <input type="number" id="amount" name="amount" placeholder="Enter amount" required>
+            <!-- <label for="amount">Amount to Send:</label> -->
+            <input type="number" id="amount" name="amount" placeholder="₹Amount to Send" required>
 
             <button type="submit">Send Money</button>
         </form>

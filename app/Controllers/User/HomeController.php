@@ -7,11 +7,13 @@ use App\Middlewares\AuthMiddleware;
 use App\Support\Authentication\Auth;
 
 /**
+ *
+ *
  * HomeController class
  */
 class HomeController extends Controller
 {
-	public function index()
+	protected function index()
 	{
 		$this->view->render('User/Home/index.php');
 	}

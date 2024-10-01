@@ -28,7 +28,7 @@ class AuthValidator extends Validator
 	{
 		$v = new static;
 		$v->validate("POST", [
-			"email" 		=> "required|email",
+			"email" 		=> "required|max:16",
 			"password" 		=> "required|min:6|max:16",
 		]);
 
