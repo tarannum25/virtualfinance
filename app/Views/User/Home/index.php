@@ -24,22 +24,22 @@
                                 <p class="card-type">Virtual Debit Card</p>
                             </div>
                             <div class="card-body">
-                                <p class="card-number">1234 5678 9012 3456</p>
+                                <p class="card-number"><?= e($account->account_number) ?></p>
                                 <div class="card-details">
                                     <div class="card-holder">
                                         <p>Account Holder</p>
-                                        <p class="name">Tarannum Mahtab</p>
+                                        <p class="name"><?= e($user->fullName()) ?></p>
                                     </div>
                                     <div class="card-account-number">
                                         <p>Account Number</p>
-                                        <p class="number">00123456789</p>
+                                        <p class="number"><?= e($account->account_number) ?></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="balance">
-                            <h2>₹5,000.00</h2>
+                            <h2>₹<?= e(number_format($account->balance, 2)) ?></h2>
                             <p>Account Balance</p>
 
                             <div class="balance-details">

@@ -18,4 +18,9 @@ class User extends Model
 	{
 		return Account::byUserId($this->id);
 	}
+
+	public function fullName()
+	{
+		return $this->first_name . ' ' . $this->last_name;
+	}
 }

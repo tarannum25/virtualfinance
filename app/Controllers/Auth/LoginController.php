@@ -28,7 +28,7 @@ class LoginController extends Controller
 			redirect('auth/login');
 		}
 
-		if (!Auth::attempt($_POST['email'], $_POST['password'])) {
+		if (!Auth::attempt($_POST['username'], $_POST['password'])) {
 			Session::flash('error', 'Invalid username or password.');
 			redirect('auth/login');
 		}

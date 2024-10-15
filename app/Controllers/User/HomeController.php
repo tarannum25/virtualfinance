@@ -15,7 +15,18 @@ class HomeController extends Controller
 {
 	protected function index()
 	{
-		$this->view->render('User/Home/index.php');
+		$user = Auth::user();
+		$accounts = $user->accounts()->get();
+
+		$account = $accounts[0];
+
+		// // ..
+		// $user = User::find(2);
+
+		$this->view->render('User/Home/index.php', [
+			'user' 		=> $user,
+			'account' 	=> $account,
+		]);
 	}
 
 	protected function before()
