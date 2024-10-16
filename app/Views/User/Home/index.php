@@ -12,7 +12,6 @@
 	</div>
 </section> -->
 
-
 <main>
         <div class="top-section">
             <section class="dashboard">
@@ -61,14 +60,14 @@
     <!-- Send Money Section (Input Box for Sending Money) -->
     <div class="send-money-section">
         <h3>Send Money</h3>
-        <form id="sendMoneyForm">
+        <form action="/user/home/send-money" method="post" id="sendMoneyForm">
             <!-- <label for="recipient">Recipient Account Number:</label> -->
             <input type="text" id="recipient" name="recipient" placeholder="Recipient Account Number" required>
 
             <!-- <label for="amount">Amount to Send:</label> -->
-            <input type="number" id="amount" name="amount" placeholder="₹Amount to Send" required>
+            <input type="number" id="amount" name="amount" placeholder="₹ Amount to Send" required>
 
-            <button type="submit">Send Money</button>
+            <button type="submit" type="submit">Send Money</button>
         </form>
     </div>
 
@@ -87,42 +86,20 @@
           </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>2024-03-15</td>
-          <td>Grocery Corner</td>
-          <td>-₹5000</td>
-          <td>Debit</td>
-      </tr>
-      <tr>
-          <td>2024-05-14</td>
-          <td>Online Subscription</td>
-          <td>-₹1500</td>
-          <td>Debit</td>
-      </tr>
-      <tr>
-          <td>2024-05-23</td>
-          <td>Electricity Bill</td>
-          <td>-₹12000</td>
-          <td>Debit</td>
-      </tr>
-      <tr>
-          <td>2024-06-15</td>
-          <td>Deposit</td>
-          <td>+₹10000</td>
-          <td>Credit</td>
-      </tr>
-      <tr>
-          <td>2024-08-23</td>
-          <td>Medicine Shop</td>
-          <td>-₹12000</td>
-          <td>Debit</td>
-      </tr>
-      <tr>
-          <td>2024-09-15</td>
-          <td>Deposit</td>
-          <td>+₹10000</td>
-          <td>Credit</td>
-      </tr>
+            <?php foreach ($transactions as $t): ?>
+                <tr>
+                    <td>
+                        <?= date("d/m/Y h:ia", strtotime($t->transaction_date)) ?>
+                    </td>
+                    <td><?= $t->narration ?></td>
+                    <td>
+                        <?= $t->isCredit() ? '+' : '-' ?>
+                        ₹<?= $t->amount ?>
+                    </td>
+                    <td><?= $t->isCredit() ? 'Credit' : 'Debit'  ?></td>
+                </tr>
+            <?php endforeach; ?>
+
   </tbody>
 </table>
 </div>

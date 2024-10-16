@@ -12,6 +12,22 @@ class Transaction extends Model
 
 	public static function byAccountId(int $account_id)
 	{
-		return static::where("account_id", $account_id);
+		$sql = "
+			SELECT * FROM transactions
+			WHERE account_id = :account_id
+			ORDER BY id DESC
+		";
+
+		return static::raw($sql, ['account_id' => $account_id]);
+	}
+
+	public function isCredit()
+	{
+		return $this->transaction_type == 1;
+	}
+
+	public function isDebit()
+	{
+		return $this->transaction_type == 2;
 	}
 }

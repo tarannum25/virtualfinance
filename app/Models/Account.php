@@ -22,4 +22,9 @@ class Account extends Model
    {
       return Transaction::byAccountId($this->id);
    }
+
+   public static function findByAccountNumber($account_number)
+   {
+      return static::where('account_number', $account_number)->first();
+   }
 }
