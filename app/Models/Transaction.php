@@ -10,6 +10,20 @@ class Transaction extends Model
 	protected $primary = "id";
 	protected $table = "transactions";
 
+	public static function make(array $data)
+	{
+		$txn = new self();
+
+		$txn->amount 			= $data['amount'];
+		$txn->narration 		= $data['narration'];
+		$txn->transaction_date 	= $data['transaction_date'];
+		$txn->transaction_type 	= $data['transaction_type'];
+		$txn->user_id 			= $data['user_id'];
+		$txn->account_id 		= $data['account_id'];
+
+		return $txn;
+	}
+
 	public static function byAccountId(int $account_id)
 	{
 		$sql = "

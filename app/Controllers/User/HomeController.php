@@ -55,6 +55,44 @@ class HomeController extends Controller
 		$accounts = $user->accounts()->get();
 		$sender_account = $accounts[0];
 
+		// Check amount is valid or not
+		if ($amount < 0) {
+			Session::flash('error', 'Invalid amount');
+			redirect('user/home/index');
+		}
+
+		if ($amount > $sender_account->balance) {
+			Session::flash('error', 'Amount can not exceed your current balance');
+			redirect('user/home/index');
+		}
+		// 5. Create Debit transaction in sender account
+		$data = [
+			'amount' 			=> $amount,
+			'narration' 		=> "Transfer Rs. {$amount} to {$recipient}",
+			'transaction_date' 	=> $now,
+			'transaction_type' 	=> 2,
+			'user_id' 			=> $user->id,
+			'account_id' 		=> $sender_account->id,
+		];
+		$sender_txn = Transaction::make($data);
+		$sender_txn->save();
+
+		// 6. Create Credit transaction in recipient account
+		$data = [
+			'amount' 			=> $amount,
+			'narration' 		=> "Received Rs. {$amount} from {$sender_account->account_number}",
+			'transaction_date' 	=> $now,
+			'transaction_type' 	=> 1,
+			'user_id' 			=> $recipient_account->user_id,
+			'account_id' 		=> $recipient_account->id,
+		];
+		$recipient_txn = Transaction::make($data);
+		$recipient_txn->save();
+
+		// $recipient_txn = Transaction::makeDebit($amount, $sender_account);
+		// $recipient_txn = Transaction::makeCredit($amount, $recipient_account);
+
+		/*
 		// 5. Create Debit transaction in sender account
 		$sender_transaction = new Transaction();
 		$sender_transaction->amount = $amount;
@@ -72,6 +110,7 @@ class HomeController extends Controller
 		$recipient_transaction->user_id = $recipient_account->user_id;
 		$recipient_transaction->account_id = $recipient_account->id;
 		$recipient_transaction->save(); // Insert in transactions table
+		*/
 
 		// 7. Update sende's account balance
 		$sender_account->balance = $sender_account->balance - $amount;
@@ -80,6 +119,7 @@ class HomeController extends Controller
 		// 8. Update recipient's account balance
 		$recipient_account->balance = $recipient_account->balance + $amount;
 		$recipient_account->save(); // Run update SQL query
+
 
 		Session::flash('success', 'Money sent successfully!');
 		redirect('user/home/index');

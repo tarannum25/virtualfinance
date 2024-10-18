@@ -59,7 +59,14 @@
     </main> 
     <!-- Send Money Section (Input Box for Sending Money) -->
     <div class="send-money-section">
-        <h3>Send Money</h3>
+        <?php include VIEW_PATH . '/partials/_message.php' ?>
+
+        <?php /*
+        <?php if (\Fantom\Session::hasFlash('error')): ?>
+            <p class="error-message"><?= \Fantom\Session::flash('error') ?></p>
+        <?php endif; ?>
+        */ ?>
+
         <form action="/user/home/send-money" method="post" id="sendMoneyForm">
             <!-- <label for="recipient">Recipient Account Number:</label> -->
             <input type="text" id="recipient" name="recipient" placeholder="Recipient Account Number" required>
@@ -75,7 +82,12 @@
     <div class="bottom-section">
 
       <!-- Transaction Table -->
-      <h2>Recent Transactions</h2>
+      
+      <div class="centered-container">
+  <h2>Recent Transactions</h2>
+</div>
+
+
       <table class="transaction-table">
           <thead>
             <tr>
