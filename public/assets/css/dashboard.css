@@ -20,7 +20,7 @@ header {
     color: white;
 }
 
-.header-buttons button {
+.header-buttons settings-btn {
     background-color: #ffffff;
     color: #1a73e8;
     border: none;
@@ -292,4 +292,80 @@ background-color: #01367B;
 
 
 
+/* ========================== Profile =========================  */
 
+.profile-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:  100 px;
+    background: linear-gradient(to right, #74ebd5, #ACB6E5);
+    padding: 40px;
+}
+
+.container {
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+.glassmorphism {
+    background: linear-gradient(to right, #74ebd5, #ACB6E5);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+/*    backdrop-filter: blur(10px);*/
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 2rem;
+    width: 450px;
+    text-align: center;
+}
+
+.glassmorphism h2 {
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.input-group {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.save-btn, .update-btn {
+    width: 100%;
+    padding: 0.7rem;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.save-btn:hover, .update-btn:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.save-btn {
+    margin-top: 1rem;
+}
+
+.update-btn {
+    margin-top: 1rem;
+}
