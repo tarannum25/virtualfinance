@@ -66,7 +66,6 @@
             <p class="error-message"><?= \Fantom\Session::flash('error') ?></p>
         <?php endif; ?>
         */ ?>
-
         <form action="/user/home/send-money" method="post" id="sendMoneyForm">
             <!-- <label for="recipient">Recipient Account Number:</label> -->
             <input type="text" id="recipient" name="recipient" placeholder="Recipient Account Number" required>

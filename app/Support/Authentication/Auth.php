@@ -71,12 +71,17 @@ class Auth
 			return false;
 		}
 
-		if ($user->changePassword($old, $new) === false) {
-			self::$error = $user->getError();
+		// Check user knows the password or not
+		// Check the current password is correct or not
+		//   sldkjflsjflsf     enc(12345678) -> sldkjflsjflsf
+		if (password_verify($old, $user->password) === false) {
+			self::$error = "Old password does not match with database.";
 			return false;
 		}
 
-		return true;
+		$user->password = password_hash($new, PASSWORD_DEFAULT);
+
+		return $user->save();
 	}
 
 	public static function error()

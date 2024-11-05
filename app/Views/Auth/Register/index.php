@@ -5,6 +5,12 @@
 <div class="form-container">
     <h2>Sign Up for Virtual Finance</h2>
     <form action="/auth/register/store" method="post">
+
+        <?php
+            if (\Fantom\Session::hasFlash('error')) {
+                $error = \Fantom\Session::flash('error');
+            }
+        ?>
         <label for="first_name">First Name</label>
         <input type="text" id="first_name" name="first_name" required>
 

@@ -3,12 +3,13 @@
 <main class="profile-page">
 
     <div class="container">
-
+        <div class="notification-error-box" id="errorBox">
         <?php include VIEW_PATH . '/partials/_message.php' ?>
-
+        </div>
         <div class="profile-settings glassmorphism">
+            
             <h2>Profile Settings</h2>
-
+            
            <form action="/user/setting/update-profile" method="POST"> 
                 
                 <div class="input-group">
@@ -43,18 +44,18 @@
 
         <div class="password-update glassmorphism">
             <h2>Update Password</h2>
-            <form action="#">
+            <form action="/user/setting/change-password" method="post">
                 <div class="input-group">
                     <label for="current-password">Current Password:</label>
-                    <input type="password" id="current-password" placeholder="Enter current password">
+                    <input name="old_password" type="password" id="current-password" placeholder="Enter current password">
                 </div>
                 <div class="input-group">
-                    <label for="new-password">New Password:</label>
-                    <input type="password" id="new-password" placeholder="Enter new password">
+                    <label for="password">New Password:</label>
+                    <input name="password" type="password" id="password" placeholder="Enter new password">
                 </div>
                 <div class="input-group">
-                    <label for="confirm-password">Confirm New Password:</label>
-                    <input type="password" id="confirm-password" placeholder="Confirm new password">
+                    <label for="confirm">Confirm New Password:</label>
+                    <input name="confirm" type="password" id="confirm" placeholder="Confirm new password">
                 </div>
 
                 <button type="submit" class="update-btn">Update</button>

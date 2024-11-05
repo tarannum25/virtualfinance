@@ -19,16 +19,7 @@
                 <button class="logout-btn">Logout</button> -->
 
                 <a class="settings-btn" href="/user/setting">Settings</a>
-                
-                <button class="logout-btn" onclick="window.location.href='logout.html'">Logout</button>
-                <a class="logout-btn" href="/user/setting">Logout</a>
-
-                <!-- Button using the <button> element -->
-                    <button type="button">Settings</button>
-
-                    <!-- Button using a styled <a> link -->
-                    <a href="https:/user/setting" class="btn">Settings</a>
-
+                <a class="logout-btn" href="/auth/login/logout">Logout</a>
                
          </div>
      </header>

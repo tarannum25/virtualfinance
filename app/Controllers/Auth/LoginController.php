@@ -39,7 +39,7 @@ class LoginController extends Controller
 	public function logout()
 	{
 		Auth::logout();
-		redirect('/');
+		redirect('page/index');
 	}
 
 	protected function before()

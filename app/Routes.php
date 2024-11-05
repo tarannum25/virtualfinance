@@ -31,7 +31,6 @@ $router->add('user', [
 $router->add('user/{controller}', ['action' => 'index', 'namespace' => 'User']);
 $router->add('user/{controller}/{action}', ['namespace' => 'User']);
 $router->add('user/{controller}/{id:\d+}/{action}', ['namespace' => 'User']);
-
 $router->add('admin', [
 	'controller' 	=> 'Home',
 	'action' 		=> 'index',

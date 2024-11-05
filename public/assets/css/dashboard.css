@@ -20,7 +20,7 @@ header {
     color: white;
 }
 
-.header-buttons settings-btn {
+.header-buttons .settings-btn, .header-buttons .logout-btn {
     background-color: #ffffff;
     color: #1a73e8;
     border: none;
@@ -28,9 +28,10 @@ header {
     margin-left: 10px;
     cursor: pointer;
     border-radius: 5px;
+    text-decoration: none;
 }
 
-.header-buttons button:hover {
+.header-buttons .settings-btn:hover, .header-buttons .logout-btn:hover {
     background-color: #e8f0fe;
 }
  
@@ -207,6 +208,52 @@ h2 {
     
 }
 
+
+
+.notification {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+/*  border: 1px solid #f0d0d0;*/
+  border-radius: 4px;
+/*  position: fixed;
+  bottom: 20px;
+*/  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  font-family: Arial, sans-serif;
+  z-index: 1000;
+}
+
+.notification.is-danger {
+  background-color: #f4d4d4;
+  color: #ff0000;
+}
+
+.notification.is-success {
+/*                   RRGGBB  0 - 9 A - F*/
+  background-color: #daf6da;
+  color: #00ff00;
+}
+
+.error-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.error-message {
+  flex-grow: 1;
+  font-size: 16px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #ff0000;
+  cursor: pointer;
+}
+
+
+
 .send-money-section form {
     display: flex;
     flex-direction: row;
@@ -294,6 +341,39 @@ background-color: #01367B;
 
 /* ========================== Profile =========================  */
 
+.notification-error-box {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 0, 0, 0.1); /* Light red background for error */
+  color: #ff0000; /* Red text color */
+/*  padding: 15px;*/
+  border: 1px solid #ff0000;
+  border-radius: 5px;
+  position: fixed;
+  top: 20px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  z-index: 1000;
+}
+
+.error-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.error-message {
+  flex-grow: 1;
+  font-size: 16px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #ff0000;
+  cursor: pointer;
+}
+
 .profile-page {
     display: flex;
     justify-content: center;
@@ -369,3 +449,4 @@ background-color: #01367B;
 .update-btn {
     margin-top: 1rem;
 }
+
