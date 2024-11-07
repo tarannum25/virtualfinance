@@ -53,7 +53,7 @@ class Transaction extends Model
 			WHERE transaction_type = 1 AND account_id = :account_id
 		";
 
-		return static::raw($sql, [
+		return (float) static::raw($sql, [
 			'account_id' => $account_id
 		])->first()->total_credit;
 	}
@@ -66,7 +66,7 @@ class Transaction extends Model
 			WHERE transaction_type = 2 AND account_id = :account_id
 		";
 
-		return static::raw($sql, [
+		return (float) static::raw($sql, [
 			'account_id' => $account_id
 		])->first()->total_debit;
 	}

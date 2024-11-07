@@ -15,7 +15,7 @@
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="signup.html">Sign Up</a></li>
+                <li><a href="/auth/register">Sign Up</a></li>
                 <li><a href="/auth/login">Login</a></li>
             </ul>
         </nav>

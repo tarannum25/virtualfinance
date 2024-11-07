@@ -36,6 +36,7 @@ Multi line comment
 
 --
 -- account tables
+-- status: 1 = active, 2 = inactive, 3 = blocked, 4 = freeze
 --
 DROP TABLE IF EXISTS accounts;
 CREATE TABLE accounts (

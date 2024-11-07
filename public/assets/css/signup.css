@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    /*background-color: #f4f4f4;
+    color: #333;*/
+
+     font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #74ebd5, #ACB6E5);
+    margin: 0;
+    height: 100vh;
+}
+
+header {
+    background-color:#01367B;
+/*    background: linear-gradient(89.5deg, rgb(104, 208, 232) 1.5%, rgb(231, 144, 245) 100.5%);*/
+/*    padding: 1rem 0;*/
+ padding:20px;
+    text-align: center;
+/*#1e88e5;#00dbce;*/
+}
+
+.logo h1 {
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.hero {
+/*    background: url('https://png.pngtree.com/background/20230525/original/pngtree-blue-credit-card-sitting-on-a-dark-background-picture-image_2737372.jpg') no-repeat center center/cover;*/
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    padding:20px;
+}
+/*
+.login-form {
+    height: calc(100vh - 100px - 50px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+*/
+.signup-form {
+    height: calc(100vh - 100px - 50px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 50px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+h2 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+form label {
+
+    display: block;
+    color: #fff;
+    margin-top: 10px;
+}
+
+form input, form select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: none;
+}
+
+.btn {
+/*    background-color: #4CAF50;*/
+    background: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    color: white;
+    padding: 12px 20px;
+    margin-top: 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+}
+
+.btn:hover {
+    background-color: #45a049;
+
+}
+  
+footer {
+    background: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+}

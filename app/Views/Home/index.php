@@ -4,7 +4,7 @@
     <div class="hero">
         <h2>Welcome to Virtual Finance</h2>
         <p>Your trusted partner in modern banking solutions.</p>
-        <a href="#signup" class="cta">Get Started</a>
+        <a href="/auth/register" class="cta">Get Started</a>
     </div>
 </section>
 
