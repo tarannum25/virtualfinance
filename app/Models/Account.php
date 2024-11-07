@@ -27,4 +27,18 @@ class Account extends Model
    {
       return static::where('account_number', $account_number)->first();
    }
+
+   public function totalCreditAmount()
+   {
+      $account_id = $this->id;
+
+      return Transaction::totalCreditAmount($account_id);
+   }
+
+   public function totalDebitAmount()
+   {
+      $account_id = $this->id;
+
+      return Transaction::totalDebitAmount($account_id);
+   }
 }

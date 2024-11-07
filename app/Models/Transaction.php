@@ -44,4 +44,30 @@ class Transaction extends Model
 	{
 		return $this->transaction_type == 2;
 	}
+
+	public static function totalCreditAmount($account_id)
+	{
+		$sql = "
+			SELECT sum(amount) as total_credit
+				FROM transactions
+			WHERE transaction_type = 1 AND account_id = :account_id
+		";
+
+		return static::raw($sql, [
+			'account_id' => $account_id
+		])->first()->total_credit;
+	}
+
+	public static function totalDebitAmount($account_id)
+	{
+		$sql = "
+			SELECT sum(amount) as total_debit
+				FROM transactions
+			WHERE transaction_type = 2 AND account_id = :account_id
+		";
+
+		return static::raw($sql, [
+			'account_id' => $account_id
+		])->first()->total_debit;
+	}
 }

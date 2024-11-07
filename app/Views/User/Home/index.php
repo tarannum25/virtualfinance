@@ -44,11 +44,15 @@
                             <div class="balance-details">
                                 <div class="withdrawl">
                                     <p>Total Debit</p>
-                                    <p class="debit">₹5,000.00</p>
+                                    <p class="debit">
+                                        ₹<?= e(number_format($total_dr_amount, 2)) ?>
+                                    </p>
                                 </div>
                                 <div class="totalcredit">
                                     <p>Total Credit</p>
-                                    <p class="credit">₹8,000.00</p>
+                                    <p class="credit">
+                                        ₹<?= e(number_format($total_cr_amount, 2)) ?>
+                                    </p>
                                 </div>
                             </div>
                         </div>

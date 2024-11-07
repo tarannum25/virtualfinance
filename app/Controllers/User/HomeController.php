@@ -24,6 +24,9 @@ class HomeController extends Controller
 		$account = $accounts[0];
 		$transactions = $account->transactions()->get();
 
+		$total_credit_amount = $account->totalCreditAmount();
+		$total_debit_amount = $account->totalDebitAmount();
+
 		// // ..
 		// $user = User::find(2);
 
@@ -31,6 +34,8 @@ class HomeController extends Controller
 			'user' 			=> $user,
 			'account' 		=> $account,
 			'transactions' 	=> $transactions,
+			'total_cr_amount' => $total_credit_amount,
+			'total_dr_amount' => $total_debit_amount,
 		]);
 	}
 
