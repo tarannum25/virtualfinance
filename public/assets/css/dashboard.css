@@ -70,6 +70,7 @@ main {
     justify-content: center;
     align-items: center;
     height: 100%;
+    position: relative;
 }
 
 .virtual-debit-card {
@@ -297,6 +298,39 @@ h2 {
 .send-money-section button:hover {
     background: linear-gradient(to top, #30cfd0 0%, #330867 100%);
 }
+
+.arrow-button {
+    background-color: #01367B;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.arrow-button:hover {
+    background-color: #45a049;
+}
+
+.arrow-left, .arrow-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.arrow-left {
+    left: -80px;
+}
+
+.arrow-right {
+    right: -60px;
+}
+
 
 .bottom-section {
 /*  background-color: #d0d0d0;*/

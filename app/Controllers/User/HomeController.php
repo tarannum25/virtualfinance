@@ -18,12 +18,26 @@ class HomeController extends Controller
 {
 	protected function index()
 	{
+		$current_index = 0;
 		$user = Auth::user();
 		$accounts = $user->accounts()->get();
 
-		$account = $accounts[0];
+		if (isset($_GET['active_index'])) {
+			$current_index = (int) $_GET['active_index'];
+			if ($current_index < 0) {
+				$current_index = 0;
+			} else if ($current_index > count($accounts) - 1) {
+				$current_index = count($accounts) - 1;
+			}
+		}
+
+		$account = $accounts[$current_index];
 		$transactions = $account->transactions()->get();
 
+		// Check no. of accounts
+		$total_account = count($accounts); // 1, 2, 3,...
+          
+        
 		$total_credit_amount = $account->totalCreditAmount();
 		$total_debit_amount = $account->totalDebitAmount();
 
@@ -36,6 +50,8 @@ class HomeController extends Controller
 			'transactions' 	=> $transactions,
 			'total_cr_amount' => $total_credit_amount,
 			'total_dr_amount' => $total_debit_amount,
+			'total_account' 	=> $total_account,
+			'current_index' 	=> $current_index,
 		]);
 	}
 

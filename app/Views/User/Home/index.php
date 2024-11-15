@@ -56,6 +56,15 @@
                                 </div>
                             </div>
                         </div>
+
+                    <?php if ($total_account > 1): ?>
+
+                        <a href="/user?active_index=<?= $current_index - 1 ?>" class="arrow-button arrow-left">←</a>
+                        <a href="/user?active_index=<?= $current_index + 1 ?>" class="arrow-button arrow-right">→</a>
+
+                    <?php endif; ?>
+
+                    
                     </div>
                 </div>
             </section>
